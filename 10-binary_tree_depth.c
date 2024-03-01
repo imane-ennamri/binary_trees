@@ -6,16 +6,9 @@
 *
 * Return: levels from root, or 0 if `tree` is NULL
 */
-size_t binary_tree_depth(const binary_tree_t *new_node)
+size_t binary_tree_depth(const binary_tree_t *node)
 {
-	size_t tree = 0;
-
-	if (new_node == NULL)
-		return (tree);
-	while (new_node->parent != NULL)
-	{
-		tree++;
-		new_node = new_node->parent;
-	}
-	return (tree);
+	if (!node || !(node->parent))
+		return (0);
+	return (binary_node_depth(tree->parent) + 1);
 }
